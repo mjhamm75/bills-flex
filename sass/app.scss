@@ -1,0 +1,29 @@
+body {
+	margin: 0px;
+	font-family: sans-serif;
+}
+.flex-container {
+	display: flex;
+}
+.center {
+	justify-content: center;
+}
+.flex-container-col {
+	display: flex;
+	flex-direction: column;
+}
+.header {
+	background: gray;
+	display: flex;
+	justify-content: flex-end;
+	padding: 15px;
+
+	span {
+		padding: 5px;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}
