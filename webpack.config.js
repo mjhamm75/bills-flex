@@ -16,10 +16,10 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: 'babel'
             },
-            { 
-                test: /\.less$/, 
+            {
+                test: /\.scss$/,
                 exclude: /(node_modules)/,
-                loader: "style!css!less"
+                loader: "style!css!sass"
             },
             { 
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
