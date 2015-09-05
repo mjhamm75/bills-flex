@@ -9,7 +9,7 @@ var Main = require('./components/main.js');
 var Bills = require('./components/bills.js');
 var About = require('./components/about.js');
 
-fetch('http://swapi.co/api/people/1')
+fetch('http://localhost:3000/info')
 
 React.render((
   <Router history={history}>
