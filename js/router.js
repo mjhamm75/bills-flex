@@ -9,16 +9,6 @@ var Main = require('./components/main.js');
 var Bills = require('./components/bills.js');
 var About = require('./components/about.js');
 
-// fetch('http://localhost:3000/info').then(function(response) {
-//         if (response.status >= 400) {
-//             throw new Error("Bad response from server");
-//         }
-//         return response.json();
-//     })
-//     .then(function(stories) {
-//         console.log(stories);
-//     });
-
 React.render((
   <Router history={history}>
     <Route path="/" component={Main}>
