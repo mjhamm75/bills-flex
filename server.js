@@ -3,10 +3,10 @@ var PORT = 3000;
 
 var app = express();
 
-app.get('/info', (req, res) => {
-	res.json({
-		jason: 'hamm'
-	})
+app.use(express.static('.'));
+
+app.get('/', (req, res) => {
+	res.render('./index.html')
 })
 
 app.listen(PORT, () => {
