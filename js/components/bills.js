@@ -1,6 +1,13 @@
 import React from 'react';
+import { isoFetch } from './../utils/fetch.utils.js';
 
 export default class Bills extends React.Component {
+	constructor(props) {
+		super(props)
+		isoFetch('http://localhost:3000/bills').then(res => {
+			console.log(res);
+		})
+	}
 	render() {
 		return (
 			<div className="bills">
