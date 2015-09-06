@@ -1,8 +1,8 @@
-var EventEmitter = require('events').EventEmitter;
-var CHANGE_EVENT = "change";
-
+import { EventEmitter } from 'events';
 import BillConstants from './../constants/bill.constants.js';
 import BillDispatcher from './../dispatcher/bill.dispatcher.js';
+
+var CHANGE_EVENT = "change";
 
 var bills = [];
 function _getBills() {

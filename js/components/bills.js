@@ -15,7 +15,7 @@ var Bills = React.createClass({
 	getInitialState: function() {
 		BillActions.updateBills();
 		return {
-			bills: []
+			bills: getBills()
 		}
 	},
 
