@@ -9,7 +9,7 @@ var Bill = React.createClass({
 
 	getExpandedDOM(bill) {
 		if(this.state.expanded) {
-			return <h1>Jason</h1>
+			return <div>{bill.name}</div>
 		} else {
 			return null;
 		}
@@ -19,9 +19,11 @@ var Bill = React.createClass({
 		var ExpandedBill = this.getExpandedDOM(this.props.bill);
 		return (
 			<li>
-				<div className="flex-container" onClick={this.expand}>
-					<div className="bill-width">{this.props.bill.name}</div>
-					<div className="bill-width">{this.props.bill.payoff}</div>
+				<div className="flex-container-col" onClick={this.expand}>
+					<div className="flex-container">
+						<div className="bill-width">{this.props.bill.name}</div>
+						<div className="bill-width">{this.props.bill.payoff}</div>
+					</div>
 					{ExpandedBill}
 				</div>
 			</li>
