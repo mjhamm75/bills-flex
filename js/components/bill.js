@@ -1,6 +1,7 @@
 import React from 'react';
+import { DDMMMYYYY } from './../utils/date.utils.js';
+import { formatCurrency } from './../utils/money.utils.js';
 import numeral from 'numeral';
-import moment from 'moment';
 
 var Bill = React.createClass({
 	getInitialState() {
@@ -15,8 +16,8 @@ var Bill = React.createClass({
 				return (
 					<li>
 						<div className="flex-container">
-							<div className="bill-width">{moment(date.pay_date).format('DD MMM YYYY')}</div>
-							<div className="bill-width">{numeral(date.payment).format('$0,0.00')}</div>
+							<div className="bill-width">{DDMMMYYYY(date.pay_date)}</div>
+							<div className="bill-width">{formatCurrency(date.payment)}</div>
 						</div>
 					</li>
 				)
@@ -38,7 +39,7 @@ var Bill = React.createClass({
 				<div className="flex-container-col" onClick={this.expand}>
 					<div className="flex-container">
 						<div className="bill-width">{this.props.bill.name}</div>
-						<div className="bill-width">{numeral(this.props.bill.payoff).format('$0,0.00')}</div>
+						<div className="bill-width">{formatCurrency(this.props.bill.payoff)}</div>
 					</div>
 					{ExpandedBill}
 				</div>
