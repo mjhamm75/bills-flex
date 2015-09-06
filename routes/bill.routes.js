@@ -8,7 +8,7 @@ export function getBills(knex) {
 export function sortBills(bills) {
 	var results = [];
 	bills.forEach(bill => {
-		var index = _.findIndex(results, { id: bill.id });
+		var index = _.findIndex(results, { id: bill.bill_id });
 		if(index > -1) {
 			var pay_date = {
 				payment: bill.payment, 
