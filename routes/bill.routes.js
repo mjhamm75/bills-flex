@@ -1,15 +1,13 @@
 import _ from 'lodash';
 
 export function getBills(knex) {
-	return knex.from('bills').innerJoin('bills_paid_dates', 'bills.id', 'bills_paid_dates.bill_id');
+	return knex.from('bills').leftJoin('bills_paid_dates', 'bills.id', 'bills_paid_dates.bill_id');
 }
 
 
 export function sortBills(bills) {
 	var results = [];
-	debugger;
 	bills.forEach(bill => {
-		debugger;
 		var index = _.findIndex(results, { id: bill.id });
 		if(index > -1) {
 			var pay_date = {
