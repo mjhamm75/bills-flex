@@ -1,8 +1,17 @@
-var express = require('express');
+import express from 'express';
+var knex = require('knex')({
+		client: 'pg',
+			connection: {
+				host : 'localhost',
+				user     : 'bills',
+				password : 'bills',
+				database : 'bills'
+			}
+	});;
+
 var PORT = 3000;
 
 var app = express();
-
 app.use(express.static('.'));
 
 app.get('/', (req, res) => {
@@ -10,8 +19,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/bills', (req, res) => {
-	res.json({
-		jason: 'hamm'
+	knex.select().table('bills').then(resp => {
+		res.json(resp)
 	})
 })
 

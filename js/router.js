@@ -5,9 +5,9 @@ import { Router, Route, Link } from 'react-router';
 import { history } from 'react-router/lib/HashHistory';
 import fetch from 'isomorphic-fetch';
 
-var Main = require('./components/main.js');
+import Main from './components/main.js';
 var Bills = require('./components/bills.js');
-var About = require('./components/about.js');
+import About from './components/about.js';
 
 React.render((
   <Router history={history}>

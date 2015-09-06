@@ -1,25 +1,38 @@
 import React from 'react';
-import { isoFetch } from './../utils/fetch.utils.js';
+import BillList from './bill.list.js';
+import BillStore from './../stores/bill.store.js';
+var BillActions = require('./../actions/bill.actions.js');
 
-export default class Bills extends React.Component {
-	constructor(props) {
-		super(props)
-		isoFetch('http://localhost:3000/bills').then(res => {
-			console.log(res);
-		})
-	}
-	render() {
+function getBills() {
+	return BillStore.getBills();
+}
+
+var Bills = React.createClass({
+	componentWillMount: function() {
+		BillStore.addChangeListener(this._onChange);
+	},
+
+	getInitialState: function() {
+		BillActions.updateBills();
+		return {
+			bills: []
+		}
+	},
+
+	_onChange: function() {
+		this.setState({
+			bills: getBills()
+		});
+	},
+
+	render: function() {
 		return (
 			<div className="bills">
 				<h1>Bills</h1>
-				<ul>
-					<li>Bill 1</li>
-					<li>Bill 2</li>
-					<li>Bill 3</li>
-					<li>Bill 4</li>
-					<li>Bill 5</li>
-				</ul>
+				<BillList bills={this.state.bills} />
 			</div>
 		)
 	}
-}
+});
+
+module.exports = Bills;
