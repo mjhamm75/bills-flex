@@ -11,7 +11,7 @@ export default class Header extends React.Component {
 					<a href="#/payoff">Payoff</a>
 				</span>
 				<span>
-					<a href="#/other">Other</a>
+					<a href="#/about">About</a>
 				</span>
 			</div>
 		)
