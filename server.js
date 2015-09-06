@@ -1,5 +1,8 @@
 import express from 'express';
+import _ from 'lodash';
+
 var knex = require('knex')(require('./config/knex.js'));
+import { getBills, sortBills } from './routes/bill.routes.js';
 
 var PORT = 3000;
 
@@ -11,9 +14,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/bills', (req, res) => {
-	knex.select().table('bills').then(resp => {
-		res.json(resp)
-	})
+	getBills(knex).then(resp => {
+		res.json(sortBills(resp));
+	});
 })
 
 app.listen(PORT, () => {

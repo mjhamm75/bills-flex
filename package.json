@@ -17,6 +17,7 @@
     "express": "^4.13.3",
     "flux": "^2.1.1",
     "isomorphic-fetch": "^2.1.1",
+    "lodash": "^3.10.1",
     "node-sass": "^3.3.2",
     "pg": "^4.4.1",
     "react": "^0.13.3",
