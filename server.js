@@ -1,13 +1,5 @@
 import express from 'express';
-var knex = require('knex')({
-		client: 'pg',
-			connection: {
-				host : 'localhost',
-				user     : 'bills',
-				password : 'bills',
-				database : 'bills'
-			}
-	});;
+var knex = require('knex')(require('./config/knex.js'));
 
 var PORT = 3000;
 

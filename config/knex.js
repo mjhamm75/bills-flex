@@ -1,7 +1,7 @@
 var config = {
 	client: 'pg',
 		connection: {
-			host : 'localhost:5432',
+			host : 'localhost',
 			user     : 'bills',
 			password : 'bills',
 			database : 'bills'
