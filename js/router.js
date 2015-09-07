@@ -6,7 +6,7 @@ import { history } from 'react-router/lib/HashHistory';
 import fetch from 'isomorphic-fetch';
 
 import Main from './components/main.js';
-var Bills = require('./components/bills.js');
+var Bills = require('./components/bills.container.js');
 import About from './components/about.js';
 
 React.render((

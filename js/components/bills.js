@@ -1,38 +1,18 @@
 import React from 'react';
-import BillList from './bill.list.js';
-import BillStore from './../stores/bill.store.js';
-var BillActions = require('./../actions/bill.actions.js');
+import Bill from './bill.js';
 
-function getBills() {
-	return BillStore.getBills();
-}
-
-var Bills = React.createClass({
-	componentWillMount: function() {
-		BillStore.addChangeListener(this._onChange);
-	},
-
-	getInitialState: function() {
-		BillActions.updateBills();
-		return {
-			bills: getBills()
-		}
-	},
-
-	_onChange: function() {
-		this.setState({
-			bills: getBills()
-		});
-	},
-
-	render: function() {
+export default class BillList extends React.Component {
+	billDOM(bills) {
+		return this.props.bills.map(bill => {
+			return <Bill key={bill.id} bill={bill} />
+		})
+	}
+	render() {
+		var bills = this.billDOM(this.props.bills);
 		return (
-			<div className="bills">
-				<h1>Bills</h1>
-				<BillList bills={this.state.bills} />
-			</div>
+			<ul>
+				{bills}
+			</ul>
 		)
 	}
-});
-
-module.exports = Bills;
+}
