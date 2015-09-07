@@ -14,18 +14,16 @@ var Bill = React.createClass({
 		if(this.state.expanded) {
 			var payDates = bill.pay_dates.map(date => {
 				return (
-					<li>
-						<div className="flex-container">
-							<div className="bill-width">{DDMMMYYYY(date.pay_date)}</div>
-							<div className="bill-width">{formatCurrency(date.payment)}</div>
-						</div>
-					</li>
+					<div>
+						<div className="cell">{DDMMMYYYY(date.pay_date)}</div>
+						<div className="cell">{formatCurrency(date.payment)}</div>
+					</div>
 				)
 			});
 			return (
-				<ul>
+				<div className="row">
 					{payDates}
-				</ul>
+				</div>
 			)			
 		} else {
 			return null;
@@ -35,15 +33,11 @@ var Bill = React.createClass({
 	render() {
 		var ExpandedBill = this.getExpandedDOM(this.props.bill);
 		return (
-			<li>
-				<div className="flex-container-col" onClick={this.expand}>
-					<div className="flex-container">
-						<div className="bill-width">{this.props.bill.name}</div>
-						<div className="bill-width">{formatCurrency(this.props.bill.payoff)}</div>
-					</div>
-					{ExpandedBill}
-				</div>
-			</li>
+			<div className="row" onClick={this.expand}>
+				<div className="cell">{this.props.bill.name}</div>
+				<div className="cell">{formatCurrency(this.props.bill.payoff)}</div>
+				{ExpandedBill}
+			</div>
 		)
 	},
 
