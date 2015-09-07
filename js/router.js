@@ -6,13 +6,13 @@ import { history } from 'react-router/lib/HashHistory';
 import fetch from 'isomorphic-fetch';
 
 import Main from './components/main.js';
-var Bills = require('./components/bills.container.js');
+var BillsContainer = require('./components/bills.container.js');
 import About from './components/about.js';
 
 React.render((
   <Router history={history}>
     <Route path="/" component={Main}>
-      <Route path="bills" component={Bills}/>
+      <Route path="bills" component={BillsContainer}/>
       <Route path="about" component={About}/>
     </Route>
   </Router>

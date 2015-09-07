@@ -1,5 +1,5 @@
 import React from 'react';
-import BillList from './bills.js';
+import Bills from './bills.js';
 import BillStore from './../stores/bill.store.js';
 var BillActions = require('./../actions/bill.actions.js');
 
@@ -7,7 +7,7 @@ function getBills() {
 	return BillStore.getBills();
 }
 
-var Bills = React.createClass({
+var BillsContainer = React.createClass({
 	componentWillMount: function() {
 		BillStore.addChangeListener(this._onChange);
 	},
@@ -29,10 +29,10 @@ var Bills = React.createClass({
 		return (
 			<div className="bills">
 				<h1>Bills</h1>
-				<BillList bills={this.state.bills} />
+				<Bills billsList={this.state.bills} />
 			</div>
 		)
 	}
 });
 
-module.exports = Bills;
+module.exports = BillsContainer;

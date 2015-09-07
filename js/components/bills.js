@@ -3,7 +3,7 @@ import Bill from './bill.js';
 
 export default class BillList extends React.Component {
 	billDOM(bills) {
-		return this.props.bills.map(bill => {
+		return this.props.billsList.map(bill => {
 			return <Bill key={bill.id} bill={bill} />
 		})
 	}
