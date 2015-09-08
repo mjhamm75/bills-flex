@@ -26,7 +26,7 @@ module.exports =  React.createClass({
 		var bills = this.billDOM(this.props.bills);
 		return (
 			<div className="table">
-				<div className="row">
+				<div className="row table-header">
 					<div className="cell" onClick={this.sort.bind(this, "name")}>Bill Name</div>
 					<div className="cell" onClick={this.sort.bind(this, "payoff")}>Amount</div>
 				</div>
