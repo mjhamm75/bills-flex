@@ -7,3 +7,12 @@ export function DDMMMYYYY(iso) {
 		return "unknown";
 	}
 }
+
+export function getPaymentMonths() {
+	var months = [];
+	var today = moment();
+	var next = moment().add(1, 'month');
+	var previous = moment().subtract(1, 'month');
+	months.push(previous.format('MMM'), today.format('MMM'), next.format('MMM'))
+	return months;
+}

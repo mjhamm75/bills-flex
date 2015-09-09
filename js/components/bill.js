@@ -14,7 +14,7 @@ var Bill = React.createClass({
 		if(this.state.expanded) {
 			var payDates = bill.pay_dates.map(date => {
 				return (
-					<div>
+					<div key={bill.id}>
 						<div className="cell-expanded">{DDMMMYYYY(date.pay_date)}</div>
 						<div className="cell-expanded">{formatCurrency(date.payment)}</div>
 					</div>
