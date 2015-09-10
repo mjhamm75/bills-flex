@@ -3,7 +3,7 @@ import Bill from './bill.js';
 import { getPaymentMonths } from './../utils/date.utils.js';
 
 module.exports =  React.createClass({
-	billDOM: function(bills) {
+	billDOM: function(bills, months) {
 		var orderBy = this.state.orderBy;
 		var ordered = this.props.billsList.sort((a, b) => {
 			if(orderBy === "payoff") {
@@ -13,7 +13,7 @@ module.exports =  React.createClass({
 			}
 		})
 		return ordered.map(bill => {
-			return <Bill key={bill.id} bill={bill} />
+			return <Bill key={bill.id} bill={bill} months={months}/>
 		})
 	},
 
@@ -25,7 +25,7 @@ module.exports =  React.createClass({
 
 	render: function() {
 		var months = getPaymentMonths();
-		var bills = this.billDOM(this.props.bills);
+		var bills = this.billDOM(this.props.bills, months);
 		return (
 			<div className="table">
 				<div className="row table-header">

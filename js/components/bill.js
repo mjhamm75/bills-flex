@@ -1,7 +1,8 @@
 import React from 'react';
-import { DDMMMYYYY } from './../utils/date.utils.js';
+import { DDMMMYYYY, paidThisMonth } from './../utils/date.utils.js';
 import { formatCurrency } from './../utils/money.utils.js';
 import numeral from 'numeral';
+import _ from 'lodash';
 
 var Bill = React.createClass({
 	getInitialState() {
@@ -30,14 +31,23 @@ var Bill = React.createClass({
 		}
 	},
 
+	getPaidDOM(bill, months) {
+		return months.map(month => {
+			var paid = paidThisMonth(bill.pay_dates, month);
+			if(paid) {
+				return <div className="cell">X</div>;
+			}
+			return <div className="cell"></div>
+		});
+	},
+
 	render() {
 		var ExpandedBill = this.getExpandedDOM(this.props.bill);
+		var paidDOM = this.getPaidDOM(this.props.bill, this.props.months);
 		return (
 			<div className="row" onClick={this.expand}>
 				<div className="cell">{this.props.bill.name}</div>
-				<div className="cell">{this.props.bill.name}</div>
-				<div className="cell">{this.props.bill.name}</div>
-				<div className="cell">{this.props.bill.name}</div>
+				{paidDOM}
 				{ExpandedBill}
 			</div>
 		)

@@ -27,3 +27,9 @@ export function getPaymentMonths() {
 	})
 	return months;
 }
+
+export function paidThisMonth(payDates, month) {
+	return payDates.some(date => {
+		return moment(date.pay_date).month() === month.index;
+	});
+}
