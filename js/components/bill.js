@@ -35,7 +35,7 @@ var Bill = React.createClass({
 		return months.map(month => {
 			var paid = paidThisMonth(bill.pay_dates, month);
 			if(paid) {
-				return <div className="cell">X</div>;
+				return <div className="cell"><i className="fa fa-check"></i></div>;
 			}
 			return <div className="cell"></div>
 		});
