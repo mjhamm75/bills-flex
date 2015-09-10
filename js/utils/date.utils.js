@@ -8,11 +8,22 @@ export function DDMMMYYYY(iso) {
 	}
 }
 
-export function getPaymentMonthsNames() {
+export function getPaymentMonths() {
 	var months = [];
 	var today = moment();
 	var next = moment().add(1, 'month');
 	var previous = moment().subtract(1, 'month');
-	months.push(previous.format('MMM'), today.format('MMM'), next.format('MMM'))
+	months.push({
+		name: previous.format('MMM'),
+		index: previous.month()
+	},
+	{
+		name: today.format('MMM'),
+		index: today.month()
+	},
+	{
+		name: next.format('MMM'),
+		index: next.month()
+	})
 	return months;
 }
