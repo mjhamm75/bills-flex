@@ -1,5 +1,5 @@
 import React from 'react';
-import Bills from './bills.js';
+import Payoffs from './payoffs.js';
 import BillStore from './../stores/bill.store.js';
 var BillActions = require('./../actions/bill.actions.js');
 
@@ -29,7 +29,7 @@ var PayoffsContainer = React.createClass({
 		return (
 			<div className="bills">
 				<h1>Payoff</h1>
-				<Bills billsList={this.state.bills} />
+				<Payoffs billsList={this.state.bills} />
 			</div>
 		)
 	}
