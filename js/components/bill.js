@@ -35,6 +35,9 @@ var Bill = React.createClass({
 		return (
 			<div className="row" onClick={this.expand}>
 				<div className="cell">{this.props.bill.name}</div>
+				<div className="cell">{this.props.bill.name}</div>
+				<div className="cell">{this.props.bill.name}</div>
+				<div className="cell">{this.props.bill.name}</div>
 				{ExpandedBill}
 			</div>
 		)

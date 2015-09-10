@@ -8,7 +8,7 @@ export function DDMMMYYYY(iso) {
 	}
 }
 
-export function getPaymentMonths() {
+export function getPaymentMonthsNames() {
 	var months = [];
 	var today = moment();
 	var next = moment().add(1, 'month');

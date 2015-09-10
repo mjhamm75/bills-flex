@@ -1,6 +1,6 @@
 import React from 'react';
 import Bill from './bill.js';
-import { getPaymentMonths } from './../utils/date.utils.js';
+import { getPaymentMonthsNames } from './../utils/date.utils.js';
 
 module.exports =  React.createClass({
 	billDOM: function(bills) {
@@ -24,7 +24,7 @@ module.exports =  React.createClass({
 	},
 
 	render: function() {
-		var months = getPaymentMonths();
+		var months = getPaymentMonthsNames();
 		var bills = this.billDOM(this.props.bills);
 		return (
 			<div className="table">
