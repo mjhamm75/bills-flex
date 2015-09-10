@@ -28,7 +28,7 @@ var BillsContainer = React.createClass({
 	render: function() {
 		return (
 			<div className="bills">
-				<h1>Bills</h1>
+				<h1>Bills Paid</h1>
 				<Bills billsList={this.state.bills} />
 			</div>
 		)
