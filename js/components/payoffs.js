@@ -1,6 +1,7 @@
 import React from 'react';
 import Payoff from './payoff.js';
 import { getPaymentMonths } from './../utils/date.utils.js';
+import { formatCurrency, getTotal } from './../utils/money.utils.js';
 
 module.exports =  React.createClass({
 	payoffDOM: function(bills, months) {
@@ -24,8 +25,10 @@ module.exports =  React.createClass({
 	},
 
 	render: function() {
+		var bills = this.props.billsList || [];
 		var months = getPaymentMonths();
-		var payoffs = this.payoffDOM(this.props.bills, months);
+		var payoffs = this.payoffDOM(bills, months);
+		var total = getTotal(bills);
 		return (
 			<div className="table">
 				<div className="row table-header">
@@ -33,6 +36,10 @@ module.exports =  React.createClass({
 					<div className="cell" onClick={this.sort.bind(this, "payoff")}>Payoff Amount</div>					
 				</div>
 				{payoffs}
+				<div className="row">
+					<div className="cell table-header">Total</div>
+					<div className="cell">{formatCurrency(getTotal(bills))}</div>
+				</div>
 			</div>
 		)
 	},

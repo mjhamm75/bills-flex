@@ -1,7 +1,6 @@
 import React from 'react';
 import { DDMMMYYYY, paidThisMonth } from './../utils/date.utils.js';
 import { formatCurrency } from './../utils/money.utils.js';
-import numeral from 'numeral';
 import _ from 'lodash';
 
 var Bill = React.createClass({
