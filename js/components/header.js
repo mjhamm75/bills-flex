@@ -5,6 +5,9 @@ export default class Header extends React.Component {
 		return (
 			<div className="header">
 				<span>
+					<button>Add Bill</button>
+				</span>
+				<span>
 					<a href="#/bills">Bills</a>
 				</span>
 				<span>
