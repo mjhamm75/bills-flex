@@ -44,7 +44,7 @@ ul {
 .row {
 	display: table-row;
 }
-.row:hover {
+.row:hover:not(.table-header) {
 	background: #C3C3C3;
 }
 .cell {
